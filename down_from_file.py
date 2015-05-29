@@ -9,8 +9,10 @@ if  api.has_logged_in:
 else:
                 print '用户名或密码错误'
 with open(r'magnet.txt','rb') as f :
-        all =f.readlines()
-        for url in all:
-            api.add_task_url(url)
-            time.sleep(3)
+        all =f.read()
+lista=all.split('[')[1].split(']')[0]
+for url in  lista.split(','):
+     #api.add_task_url(url)
+        print url
+        time.sleep(3)
 api.logout()
